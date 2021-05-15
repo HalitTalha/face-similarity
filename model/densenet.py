@@ -97,7 +97,6 @@ class DenseNet(tf.keras.Model):
             setattr(self, "cell-%d" % i, c)
         return cells
 
-    @tf.contrib.eager.defun
     def call(self, input, training):
         """Run the model."""
         net = self.conv1(input)
