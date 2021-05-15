@@ -27,11 +27,11 @@ transformations = np.array([random_contrast, random_brightness, random_saturatio
 
 def tf_record_parser(record, to_grayscale=False):
     keys_to_features = {
-        "Xi": tf.FixedLenFeature((), tf.string, default_value=""),
-        'Xj': tf.FixedLenFeature([], tf.string),
-        "label": tf.FixedLenFeature((), tf.int64),
-        "height": tf.FixedLenFeature((), tf.int64),
-        "width": tf.FixedLenFeature((), tf.int64)
+        "Xi": tf.io.FixedLenFeature((), tf.string, default_value=""),
+        'Xj': tf.io.FixedLenFeature([], tf.string),
+        "label": tf.io.FixedLenFeature((), tf.int64),
+        "height": tf.io.FixedLenFeature((), tf.int64),
+        "width": tf.io.FixedLenFeature((), tf.int64)
     }
 
     features = tf.parse_single_example(record, keys_to_features)
